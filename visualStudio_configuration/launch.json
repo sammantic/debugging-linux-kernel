@@ -1,0 +1,30 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug latest kernel ",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/vmlinux",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                
+                    {"text": "file vmlinux"},
+                    {"text": "target remote :1234"},
+                    {"text": "hbreak start_kernel"},
+                    {"text": "hbreak security_transition_sid"},
+ //                   {"text": "hbreak oops_begin"},
+                    {"text": "i r"},
+                
+            ]
+        }
+    ]
+}
